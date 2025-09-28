@@ -15,7 +15,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env: 
+env:
   MAVEN_OPTS: -Duser.language=en -Dusesr.country=US
 
 jobs:
@@ -25,8 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       result: ${{job.status}}
+
     steps:
-    - name: Checkout
+    - name: Checkout do repositório
       uses: actions/checkout@v4
 
     - name: Set up JDK 21
@@ -41,7 +42,7 @@ jobs:
         cd calculadoraIMC
         mvn -B clean test site
 
-    - name: Upload test report 
+    - name: Upload test report
       uses: actions/upload-artifact@v4
       with:
         name: test report
@@ -73,12 +74,12 @@ jobs:
     - name: Upload jar artifact
       uses: actions/upload-artifact@v4
       with:
-        name: test report
+        name: build jar
         path: calculadoraIMC/target/*.jar
 
 
   notificacao:
-      
+
     needs: [testes, empacotamento]
     runs-on: ubuntu-latest
 
