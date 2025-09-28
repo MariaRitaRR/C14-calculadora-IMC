@@ -3,6 +3,7 @@ package br.inatel.cdg.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class CalculadoraIMC {
@@ -32,6 +33,7 @@ public class CalculadoraIMC {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
 
         logger.info("=== Calculadora de IMC ===");
 

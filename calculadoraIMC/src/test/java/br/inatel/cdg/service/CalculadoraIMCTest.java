@@ -1,8 +1,14 @@
 package br.inatel.cdg.service;
 
-import br.inatel.cdg.service.CalculadoraIMC;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 
 public class CalculadoraIMCTest {
@@ -136,5 +142,36 @@ public class CalculadoraIMCTest {
         String classificacao = CalculadoraIMC.classificarIMC(30.0);
         assertEquals("Obesidade", classificacao, "IMC 30.0 deve ser classificado como 'Obesidade'");
     }
+
+    // ========== TESTES COM MOCK ========== //
+
+    @Test
+    void testMain_InputValido() {
+        String input = "70\n1.75\n";
+        java.io.InputStream originalIn = System.in;
+        System.setIn(new java.io.ByteArrayInputStream(input.getBytes()));
+
+        try {
+            CalculadoraIMC.main(new String[]{});
+        } finally {
+            System.setIn(originalIn);
+        }
+    }
+
+    @Test
+    void testLogger_ErroAlturaZero() {
+        Logger mockLogger = mock(Logger.class);
+        double peso = 70;
+        double altura = 0;
+
+        try {
+            CalculadoraIMC.calcularIMC(peso, altura);
+        } catch (IllegalArgumentException e) {
+            mockLogger.error("Erro: {}", e.getMessage());
+        }
+
+        verify(mockLogger).error("Erro: {}", "Altura deve ser maior que zero");
+    }
+
 }
 
