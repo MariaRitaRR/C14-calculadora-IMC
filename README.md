@@ -22,9 +22,11 @@ Além disso, utiliza **SLF4J** para geração de logs informativos, de aviso e d
 ---
 
 ## ⚙️ Tecnologias Utilizadas
-- **Java 17** (ou versão compatível)
+- **Java21** 
 - **Maven** (para gerenciamento de dependências e build)
 - **SLF4J** (para logging)
+- **JUnit 5** (para testes automatizados)
+- **GitHub Actions** (paraa CI/CD)
 
 ---
 
@@ -34,8 +36,8 @@ CalculadoraIMC/
 ├── src/
 │   └── main/
 │       └── java/
-│           └── org/
-│               └── example/
+│           └── br/inatel/cdg/
+│               └── service/
 │                   └── CalculadoraIMC.java
 ├── target/
 │   └── CalculadoraIMC-1.0-SNAPSHOT.jar
@@ -54,10 +56,10 @@ CalculadoraIMC/
 
 ## 📥 Instalação e Dependências
 1. **Clone o Repositório**
-    git clone https://github.com/MariaRitaRR/C14-engenharia-de-software
+    git clone https://github.com/MariaRitaRR/C14-calculadora-IMC
 
 2. **Abra a Pasta**
-    cd CalculadoraIMC
+    cd calculadoraIMC
 
 3. **Instale as Dependências**
     mvn clean install
