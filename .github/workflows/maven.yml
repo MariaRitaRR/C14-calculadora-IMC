@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: jar file
-        patch: calculadoraIMC/target/*.jar
+        path: calculadoraIMC/target/*.jar
 
 
   test:
@@ -62,7 +62,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test report
-        patch: calculadoraIMC/target/site/
+        path: calculadoraIMC/target/site/
     
 
   notification:
