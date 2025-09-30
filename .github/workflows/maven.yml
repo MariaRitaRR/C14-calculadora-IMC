@@ -88,6 +88,4 @@ jobs:
     - name: Notificação por e-mail
       run: sh scripts/sendEmails.sh
       env:
-        EMAIL_TO: ${{secrets.NOTIFICATION_EMAIL1}}
-        EMAIL_TO: ${{secrets.NOTIFICATION_EMAIL2}}
-        
+        EMAIL_TO: ${{secrets.NOTIFICATION_EMAIL1}}, ${{secrets.NOTIFICATION_EMAIL2}}
