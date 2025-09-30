@@ -1,5 +1,9 @@
 # Calculadora de IMC
 
+*Criadora:* Maria Rita Raposo Rosa - 2019
+
+*Colaboradora:* Julia Alves Alvarenga Pereira - 2036
+
 Projeto desenvolvido em **Java** utilizando **Maven** para gerenciamento de dependências.  
 O programa calcula o **Índice de Massa Corporal (IMC)** a partir do peso e altura do usuário e fornece a classificação de acordo com o resultado.
 
@@ -15,7 +19,9 @@ E classifica o resultado em:
 - Abaixo do peso
 - Peso normal
 - Sobrepeso
-- Obesidade
+- Obesidade Grau I
+- Obesidade Grau II
+- Obesidade Grau III (Mórbida)
 
 Além disso, utiliza **SLF4J** para geração de logs informativos, de aviso e de erro.
 
