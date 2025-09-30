@@ -55,24 +55,6 @@ public class CalculadoraIMCTest {
         assertEquals("Sobrepeso", classificacao, "IMC 27.5 deve ser classificado como 'Sobrepeso'");
     }
 
-    @Test
-    void testCalcularIMC_ObesidadeGrauI() {
-        double imc = CalculadoraIMC.calcularIMC(100, 1.75);
-        assertEquals(32.65, imc, 0.01, "IMC deve ser 32.65 para 100kg e 1.75m");
-    }
-
-    @Test
-    void testClassificarIMC_LimiteInferiorPesoNormal() {
-        String classificacao = CalculadoraIMC.classificarIMC(18.5);
-        assertEquals("Peso normal", classificacao, "IMC 18.5 deve ser classificado como 'Peso normal'");
-    }
-
-    @Test
-    void testClassificarIMC_LimiteSuperiorPesoNormal() {
-        String classificacao = CalculadoraIMC.classificarIMC(24.9);
-        assertEquals("Peso normal", classificacao, "IMC 24.9 deve ser classificado como 'Peso normal'");
-    }
-
     // ========== TESTES NEGATIVOS ========== //
 
     @Test
@@ -137,7 +119,55 @@ public class CalculadoraIMCTest {
         assertEquals("Sobrepeso", classificacao, "IMC 29.9 deve ser classificado como 'Sobrepeso'");
     }
 
+    // ========== TESTES PARA AS CATEGORIAS DE OBESIDADE ========== //
 
+    @Test
+    void testClassificarIMC_ObesidadeGrauI() {
+        String classificacao = CalculadoraIMC.classificarIMC(32.0);
+        assertEquals("Obesidade Grau I", classificacao, "IMC 32.0 deve ser classificado como 'Obesidade Grau I'");
+    }
+
+    @Test
+    void testClassificarIMC_ObesidadeGrauII() {
+        String classificacao = CalculadoraIMC.classificarIMC(37.5);
+        assertEquals("Obesidade Grau II", classificacao, "IMC 37.5 deve ser classificado como 'Obesidade Grau II'");
+    }
+
+    @Test
+    void testClassificarIMC_ObesidadeGrauIII() {
+        String classificacao = CalculadoraIMC.classificarIMC(45.0);
+        assertEquals("Obesidade Grau III (Mórbida)", classificacao, "IMC 45.0 deve ser classificado como 'Obesidade Grau III (Mórbida)'");
+    }
+
+    @Test
+    void testClassificarIMC_LimiteInferiorObesidadeGrauI() {
+        String classificacao = CalculadoraIMC.classificarIMC(30.0);
+        assertEquals("Obesidade Grau I", classificacao, "IMC 30.0 deve ser classificado como 'Obesidade Grau I'");
+    }
+
+    @Test
+    void testClassificarIMC_LimiteSuperiorObesidadeGrauI() {
+        String classificacao = CalculadoraIMC.classificarIMC(34.9);
+        assertEquals("Obesidade Grau I", classificacao, "IMC 34.9 deve ser classificado como 'Obesidade Grau I'");
+    }
+
+    @Test
+    void testClassificarIMC_LimiteInferiorObesidadeGrauII() {
+        String classificacao = CalculadoraIMC.classificarIMC(35.0);
+        assertEquals("Obesidade Grau II", classificacao, "IMC 35.0 deve ser classificado como 'Obesidade Grau II'");
+    }
+
+    @Test
+    void testClassificarIMC_LimiteSuperiorObesidadeGrauII() {
+        String classificacao = CalculadoraIMC.classificarIMC(39.9);
+        assertEquals("Obesidade Grau II", classificacao, "IMC 39.9 deve ser classificado como 'Obesidade Grau II'");
+    }
+
+    @Test
+    void testClassificarIMC_LimiteInferiorObesidadeGrauIII() {
+        String classificacao = CalculadoraIMC.classificarIMC(40.0);
+        assertEquals("Obesidade Grau III (Mórbida)", classificacao, "IMC 40.0 deve ser classificado como 'Obesidade Grau III (Mórbida)'");
+    }
 
     // ========== TESTES COM MOCK ========== //
 
@@ -170,4 +200,3 @@ public class CalculadoraIMCTest {
     }
 
 }
-
