@@ -26,16 +26,12 @@ public class CalculadoraIMC {
             return "Peso normal";
         } else if (imc < 30) {
             return "Sobrepeso";
-        } else if (imc >= 25 && imc < 30) {
-            return "Sobrepeso";
-        } else if (imc >= 30 && imc < 35) {
-             return "Obesidade Grau I";
-        } else if (imc >= 35 && imc < 40) {
+        } else if (imc < 35) {
+            return "Obesidade Grau I";
+        } else if (imc < 40) {
             return "Obesidade Grau II";
-} else if (imc >= 40) {
-    return "Obesidade Grau III (Mórbida)";
-}
-
+        } else {
+            return "Obesidade Grau III (Mórbida)";
         }
     }
 
@@ -55,21 +51,18 @@ public class CalculadoraIMC {
             double imc = calcularIMC(peso, altura);
             String classificacao = classificarIMC(imc);
 
-            logger.info("Seu IMC é: {}", imc);
+            logger.info("Seu IMC é: {:.2f}", imc);
 
             switch (classificacao) {
                 case "Abaixo do peso":
                 case "Sobrepeso":
                     logger.warn("Classificação: {}", classificacao);
                     break;
-                case "Obesidade":
-                    logger.error("Classificação: {}", classificacao);
-                    break;
                 case "Obesidade Grau I":
                 case "Obesidade Grau II":
                 case "Obesidade Grau III (Mórbida)":
                     logger.error("Classificação: {}", classificacao);
-                     break;
+                    break;
                 default:
                     logger.info("Classificação: {}", classificacao);
             }
