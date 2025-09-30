@@ -32,8 +32,8 @@ public class CalculadoraIMC {
              return "Obesidade Grau I";
         } else if (imc >= 35 && imc < 40) {
             return "Obesidade Grau II";
-} else if (imc >= 40) {
-    return "Obesidade Grau III (Mórbida)";
+        } else if (imc >= 40) {
+            return "Obesidade Grau III (Mórbida)";
 }
 
         }
@@ -61,9 +61,6 @@ public class CalculadoraIMC {
                 case "Abaixo do peso":
                 case "Sobrepeso":
                     logger.warn("Classificação: {}", classificacao);
-                    break;
-                case "Obesidade":
-                    logger.error("Classificação: {}", classificacao);
                     break;
                 case "Obesidade Grau I":
                 case "Obesidade Grau II":
